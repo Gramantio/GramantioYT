@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Penilaian Kinerja - Login</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #006ec1, #01a2ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #006ec1;
+      margin-bottom: 1.8rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #006ec1;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #006ec1;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005299;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 1rem;
+      width: 240px;        /* atau 50px jika ingin lebih kecil */
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="Logo.png" alt="Logo" class="logo" >
+    <h2>Sistem Penilaian Kinerja</h2>
+    <form action="backend/proses-login.php" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Kata Sandi</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="role">Masuk sebagai</label>
+      <select name="role" id="role">
+        <option value="admin">Admin</option>
+        <option value="penilai">Penilai</option>
+        <option value="karyawan">Karyawan</option>
+      </select>
+
+      <button type="submit">Masuk</button>
+    </form>
+  </div>
+</body>
+</html>
