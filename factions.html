@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101510">
+  <meta name="description" content="Explore the military factions of United Factions.">
+
+  <title>Faction Directory | United Factions</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .directory-hero {
+      padding: 75px 10% 60px;
+      background:
+        linear-gradient(90deg, rgba(16,21,16,.98), rgba(16,21,16,.72)),
+        repeating-linear-gradient(135deg, transparent 0 30px,
+          rgba(166,196,107,.05) 31px 32px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .directory-hero h1 {
+      margin: 12px 0;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.1;
+    }
+
+    .directory-hero h1 span {
+      color: var(--green);
+    }
+
+    .directory-hero p:last-child {
+      max-width: 600px;
+      color: var(--muted);
+    }
+
+    .directory-list {
+      padding: 55px 10% 90px;
+    }
+
+    .directory-entry {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 25px;
+      align-items: center;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding .25s ease;
+    }
+
+    .directory-entry:hover {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .entry-number {
+      color: var(--green);
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .entry-info h2 {
+      margin: 0 0 5px;
+      font-size: 21px;
+    }
+
+    .entry-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .entry-tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .entry-status {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      color: var(--green-bright);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 650px) {
+      .directory-hero,
+      .directory-list {
+        padding-left: 7%;
+        padding-right: 7%;
+      }
+
+      .directory-entry {
+        grid-template-columns: 45px 1fr;
+        gap: 14px;
+      }
+
+      .entry-number {
+        font-size: 25px;
+      }
+
+      .entry-status {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-line"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-symbol">UF</span>
+      <span class="brand-text">
+        <strong>UNITED FACTIONS</strong>
+        <small>MILITARY OPERATIONS NETWORK</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a class="active" href="factions.html">FACTIONS</a>
+      <a href="intel.html">INTEL DATABASE</a>
+      <a href="updates.html">UPDATES</a>
+      <a href="downloads.html">DOWNLOADS</a>
+    </nav>
+
+    <div class="header-status">
+      <span class="status-dot"></span>
+      SYSTEM ONLINE
+    </div>
+  </header>
+
+  <main>
+    <section class="directory-hero">
+      <p class="eyebrow">UF DATABASE // PERSONNEL &amp; FORCE RECORDS</p>
+      <h1>FACTION <span>DIRECTORY</span></h1>
+      <p>
+        Identify the major powers and military organizations operating
+        across the United Factions battlefield.
+      </p>
+    </section>
+
+    <section class="directory-list">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 // REGISTERED FORCES</p>
+          <h2>AVAILABLE INTELLIGENCE</h2>
+        </div>
+        <span class="section-index">4 RECORDS</span>
+      </div>
+
+      <article class="directory-entry">
+        <div class="entry-number">01</div>
+        <div class="entry-info">
+          <span class="entry-tag">GLOBAL SUPERPOWER</span>
+          <h2>United States</h2>
+          <p>Advanced weapon systems, precision strikes, and air superiority.</p>
+        </div>
+        <span class="entry-status">RECORD ACTIVE</span>
+      </article>
+
+      <article class="directory-entry">
+        <div class="entry-number">02</div>
+        <div class="entry-info">
+          <span class="entry-tag">GLOBAL SUPERPOWER</span>
+          <h2>China</h2>
+          <p>Heavy armor, mass production, and devastating firepower.</p>
+        </div>
+        <span class="entry-status">RECORD ACTIVE</span>
+      </article>
+
+      <article class="directory-entry">
+        <div class="entry-number">03</div>
+        <div class="entry-info">
+          <span class="entry-tag">INSURGENT FORCE</span>
+          <h2>Global Liberation Army</h2>
+          <p>Guerrilla warfare, improvised technology, and flexible tactics.</p>
+        </div>
+        <span class="entry-status">RECORD ACTIVE</span>
+      </article>
+
+      <article class="directory-entry">
+        <div class="entry-number">04</div>
+        <div class="entry-info">
+          <span class="entry-tag">ADVANCED MILITARY ORGANIZATION</span>
+          <h2>HALO</h2>
+          <p>
+            A military organization combining adapted technology
+            and specialized doctrine to challenge the established powers.
+          </p>
+        </div>
+        <span class="entry-status">RECORD ACTIVE</span>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="index.html">UNITED FACTIONS <span>// UF</span></a>
+    <p>A fan-made modification for Command &amp; Conquer: Generals – Zero Hour.</p>
+    <p class="copyright">NOT AN OFFICIAL EA PRODUCT. ALL RIGHTS BELONG TO THEIR RESPECTIVE OWNERS.</p>
+  </footer>
+
+</body>
+</html>
