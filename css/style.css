@@ -1010,3 +1010,272 @@ body {
     padding: 22px;
   }
 }
+
+.top-line {
+  background: linear-gradient(
+    90deg,
+    #40566e,
+    var(--green-bright),
+    #40566e
+  );
+}
+
+.site-header {
+  background: rgba(21, 27, 36, 0.96);
+}
+
+.brand-symbol {
+  color: #111820;
+}
+
+.status-dot {
+  box-shadow: 0 0 10px rgba(129, 155, 185, 0.5);
+}
+
+/* Homepage hero */
+.hero {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 17, 24, 0.98) 0%,
+      rgba(12, 17, 24, 0.83) 48%,
+      rgba(12, 17, 24, 0.35) 100%
+    ),
+    linear-gradient(0deg, var(--bg), transparent 30%),
+    url("../images/hero.jpg") center 45% / cover no-repeat,
+    #273443;
+}
+
+.hero::before {
+  background-image:
+    linear-gradient(rgba(129, 155, 185, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 155, 185, 0.2) 1px, transparent 1px);
+}
+
+.hero-overlay {
+  background: radial-gradient(
+    ellipse at 70% 40%,
+    transparent,
+    rgba(12, 17, 24, 0.3) 75%
+  );
+}
+
+.hero-pretitle {
+  color: #c6d0dc;
+}
+
+.hero-description {
+  color: #c0cad7;
+}
+
+.button-primary {
+  color: #111820;
+}
+
+.button-secondary {
+  background: rgba(27, 35, 45, 0.6);
+}
+
+/* Radar */
+.radar {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 49.8%,
+      var(--border) 50%,
+      transparent 50.2%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 49.8%,
+      var(--border) 50%,
+      transparent 50.2%
+    ),
+    radial-gradient(circle, #243344, #111923 72%);
+}
+
+/* Homepage faction section */
+.faction-section {
+  background: #19212b;
+}
+
+.faction-card {
+  background: #202c39;
+}
+
+.faction-card::before {
+  background: linear-gradient(
+    0deg,
+    rgba(12, 17, 24, 0.98),
+    rgba(12, 17, 24, 0.1)
+  );
+}
+
+.faction-card::after {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 20px,
+      rgba(129, 155, 185, 0.07) 21px 22px
+    ),
+    radial-gradient(ellipse at 70% 25%, #465a70, #1a222d 72%);
+}
+
+/* Keep faction-specific accents */
+.china-card::after {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 20px,
+      rgba(205, 92, 72, 0.08) 21px 22px
+    ),
+    radial-gradient(ellipse at 70% 25%, #58372e, #1c1a18 72%);
+}
+
+.gla-card::after {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 20px,
+      rgba(196, 164, 99, 0.08) 21px 22px
+    ),
+    radial-gradient(ellipse at 70% 25%, #60533a, #211e17 72%);
+}
+
+.halo-card::after {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 20px,
+      rgba(109, 181, 194, 0.08) 21px 22px
+    ),
+    radial-gradient(ellipse at 70% 25%, #315453, #151e1e 72%);
+}
+
+/* Download banner and footer */
+.download-banner {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(36, 49, 66, 0.8),
+      rgba(16, 21, 29, 0.95)
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 25px,
+      rgba(129, 155, 185, 0.04) 26px 27px
+    );
+}
+
+.site-footer {
+  background: #0d1219;
+}
+
+/* Homepage cards */
+.home-card {
+  background: #1b232d;
+}
+
+.home-image {
+  background: #273443;
+}
+
+/* Factions directory page */
+.page-container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.page-heading {
+  padding: 40px 0 26px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-heading .eyebrow {
+  margin: 0 0 8px;
+}
+
+.page-heading h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+}
+
+.page-heading > p:last-child {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.faction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.faction-list .faction-card {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.5fr);
+  min-height: 230px;
+  padding: 0;
+  align-items: stretch;
+  background: var(--panel);
+}
+
+.faction-list .faction-card::before,
+.faction-list .faction-card::after {
+  content: none;
+}
+
+.faction-image {
+  min-height: 230px;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.faction-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+}
+
+.faction-content {
+  align-self: center;
+  padding: 26px 30px;
+}
+
+.faction-content .faction-type {
+  margin: 0 0 7px;
+}
+
+.faction-content h2 {
+  margin: 0 0 12px;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.2;
+}
+
+.faction-content > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .faction-list .faction-card {
+    grid-template-columns: 1fr;
+  }
+
+  .faction-list .faction-image,
+  .faction-list .faction-image img {
+    height: 220px;
+    min-height: 0;
+  }
+
+  .faction-content {
+    padding: 22px;
+  }
+}
