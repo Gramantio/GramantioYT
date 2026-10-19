@@ -4,122 +4,272 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101510">
-  <meta name="description" content="Explore the military factions of United Factions.">
+  <meta name="theme-color" content="#151b24">
+  <meta name="description" content="Explore the factions of United Factions, a Command & Conquer: Generals – Zero Hour modification.">
 
   <title>Faction Directory | United Factions</title>
+
   <link rel="stylesheet" href="css/style.css">
-  
+
   <style>
+    /* BLUE-GREY THEME */
+
+    :root {
+      --bg: #151b24;
+      --bg-light: #1b232d;
+      --panel: #202a36;
+      --green: #819bb9;
+      --green-bright: #a8bfd9;
+      --text: #e0e6ed;
+      --muted: #a0adbd;
+      --border: rgba(133, 160, 191, 0.22);
+
+      --accent: #819bb9;
+      --accent-light: #a8bfd9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* IMAGE-BASED HEADER LOGO */
+
+    .brand-symbol {
+      display: none;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--accent-light);
+    }
+
+    .main-nav a.active {
+      box-shadow: 0 2px 0 var(--accent);
+    }
+
+    .top-line {
+      background: linear-gradient(
+        90deg,
+        #40566e,
+        #8fa9c6,
+        #40566e
+      );
+    }
+
+    .status-dot {
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(129, 155, 185, 0.4);
+    }
+
+    /* PAGE INTRODUCTION */
+
     .directory-hero {
-      padding: 75px 10% 60px;
-      background:
-        linear-gradient(90deg, rgba(16,21,16,.98), rgba(16,21,16,.72)),
-        repeating-linear-gradient(135deg, transparent 0 30px,
-          rgba(166,196,107,.05) 31px 32px);
+      padding: 55px 8% 40px;
+      background: #19212b;
       border-bottom: 1px solid var(--border);
+    }
+
+    .directory-hero .eyebrow {
+      color: var(--accent);
     }
 
     .directory-hero h1 {
-      margin: 12px 0;
-      font-size: clamp(38px, 6vw, 64px);
-      line-height: 1.1;
+      margin: 10px 0;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -1px;
     }
 
     .directory-hero h1 span {
-      color: var(--green);
+      color: var(--accent-light);
     }
 
-    .directory-hero p:last-child {
-      max-width: 600px;
+    .directory-hero .intro-description {
+      max-width: 650px;
+      margin: 0;
       color: var(--muted);
+      font-size: 14px;
     }
+
+    /* FACTION DIRECTORY */
 
     .directory-list {
-      padding: 55px 10% 90px;
+      width: min(1100px, 84%);
+      margin: 0 auto;
+      padding: 30px 0 55px;
     }
 
-    .directory-entry {
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 25px;
-      align-items: center;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--border);
-      transition: padding .25s ease;
+    .directory-heading {
+      margin-bottom: 22px;
     }
 
-    .directory-entry:hover {
-      padding-left: 10px;
-      padding-right: 10px;
+    .directory-heading .eyebrow {
+      color: var(--accent);
     }
 
-    .entry-number {
-      color: var(--green);
-      font-size: 34px;
-      font-weight: 900;
-    }
-
-    .entry-info h2 {
-      margin: 0 0 5px;
+    .directory-heading h2 {
+      margin: 5px 0 0;
       font-size: 21px;
+      letter-spacing: 0.5px;
     }
 
-    .entry-info p {
+    .faction-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faction-entry {
+      display: grid;
+      grid-template-columns: minmax(200px, 34%) minmax(0, 1fr);
+      min-height: 190px;
+      overflow: hidden;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .faction-entry:hover {
+      border-color: rgba(168, 191, 217, 0.65);
+      background: #202b38;
+    }
+
+    .faction-image {
+      position: relative;
+      min-height: 190px;
+      overflow: hidden;
+      background: #222d39;
+    }
+
+    .faction-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .faction-entry:hover .faction-image img {
+      transform: scale(1.04);
+    }
+
+    .faction-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 25px 30px;
+    }
+
+    .faction-tag {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    .faction-info h2 {
+      margin: 0 0 10px;
+      font-size: clamp(20px, 2.5vw, 27px);
+      line-height: 1.2;
+    }
+
+    .faction-info p {
+      max-width: 520px;
       margin: 0;
       color: var(--muted);
       font-size: 13px;
+      line-height: 1.8;
     }
 
-    .entry-tag {
-      display: inline-block;
-      margin-bottom: 8px;
-      color: var(--green);
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
-
-    .entry-status {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      color: var(--green-bright);
-      font-size: 9px;
-      font-weight: 800;
+    .faction-number {
+      margin-top: 14px;
+      color: #7f8d9e;
+      font-size: 10px;
+      font-weight: 700;
       letter-spacing: 1px;
-      white-space: nowrap;
     }
+
+    /* FOOTER */
+
+    .site-footer {
+      background: #10151c;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-brand span {
+      color: var(--accent-light);
+    }
+
+    /* RESPONSIVE LAYOUT */
 
     @media (max-width: 650px) {
-      .directory-hero,
+      .directory-hero {
+        padding: 40px 7% 30px;
+      }
+
       .directory-list {
-        padding-left: 7%;
-        padding-right: 7%;
+        width: 90%;
+        padding-top: 25px;
       }
 
-      .directory-entry {
-        grid-template-columns: 45px 1fr;
-        gap: 14px;
+      .faction-entry {
+        grid-template-columns: 1fr;
       }
 
-      .entry-number {
-        font-size: 25px;
+      .faction-image {
+        height: 210px;
+        min-height: 0;
       }
 
-      .entry-status {
-        grid-column: 2;
-        justify-self: start;
+      .faction-image img {
+        height: 210px;
+        min-height: 0;
+      }
+
+      .faction-info {
+        padding: 22px;
+      }
+
+      .faction-info h2 {
+        font-size: 23px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .faction-entry,
+      .faction-image img {
+        transition: none;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="top-line"></div>
 
   <header class="site-header">
-    <a class="brand" href="index.html">
-      <span class="brand-symbol">UF</span>
+    <a class="brand" href="index.html" aria-label="United Factions Home">
+      <img
+        class="brand-logo"
+        src="images/uf-logo.png"
+        alt="United Factions logo"
+      >
+
       <span class="brand-text">
         <strong>UNITED FACTIONS</strong>
         <small>MILITARY OPERATIONS NETWORK</small>
@@ -141,73 +291,138 @@
   </header>
 
   <main>
+
     <section class="directory-hero">
-      <p class="eyebrow">UF DATABASE // PERSONNEL &amp; FORCE RECORDS</p>
+      <p class="eyebrow">UF DATABASE // FORCE IDENTIFICATION</p>
+
       <h1>FACTION <span>DIRECTORY</span></h1>
-      <p>
-        Identify the major powers and military organizations operating
-        across the United Factions battlefield.
+
+      <p class="intro-description">
+        Explore the military forces, doctrines, and arsenals
+        that define the United Factions battlefield.
       </p>
     </section>
 
     <section class="directory-list">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">01 // REGISTERED FORCES</p>
-          <h2>AVAILABLE INTELLIGENCE</h2>
-        </div>
-        <span class="section-index">4 RECORDS</span>
+
+      <div class="directory-heading">
+        <p class="eyebrow">REGISTERED FORCES</p>
+        <h2>FACTION OVERVIEW</h2>
       </div>
 
-      <article class="directory-entry">
-        <div class="entry-number">01</div>
-        <div class="entry-info">
-          <span class="entry-tag">GLOBAL SUPERPOWER</span>
-          <h2>United States</h2>
-          <p>Advanced weapon systems, precision strikes, and air superiority.</p>
-        </div>
-        <span class="entry-status">RECORD ACTIVE</span>
-      </article>
+      <div class="faction-list">
 
-      <article class="directory-entry">
-        <div class="entry-number">02</div>
-        <div class="entry-info">
-          <span class="entry-tag">GLOBAL SUPERPOWER</span>
-          <h2>China</h2>
-          <p>Heavy armor, mass production, and devastating firepower.</p>
-        </div>
-        <span class="entry-status">RECORD ACTIVE</span>
-      </article>
+        <!-- USA -->
 
-      <article class="directory-entry">
-        <div class="entry-number">03</div>
-        <div class="entry-info">
-          <span class="entry-tag">INSURGENT FORCE</span>
-          <h2>Global Liberation Army</h2>
-          <p>Guerrilla warfare, improvised technology, and flexible tactics.</p>
-        </div>
-        <span class="entry-status">RECORD ACTIVE</span>
-      </article>
+        <article class="faction-entry">
+          <div class="faction-image">
+            <img
+              src="images/faction-usa.jpg"
+              alt="United States faction"
+              loading="lazy"
+            >
+          </div>
 
-      <article class="directory-entry">
-        <div class="entry-number">04</div>
-        <div class="entry-info">
-          <span class="entry-tag">ADVANCED MILITARY ORGANIZATION</span>
-          <h2>HALO</h2>
-          <p>
-            A military organization combining adapted technology
-            and specialized doctrine to challenge the established powers.
-          </p>
-        </div>
-        <span class="entry-status">RECORD ACTIVE</span>
-      </article>
+          <div class="faction-info">
+            <span class="faction-tag">01 // GLOBAL SUPERPOWER</span>
+            <h2>United States</h2>
+            <p>
+              Advanced weapon systems, precision strikes, and air
+              superiority. The USA relies on technological advantages
+              and powerful long-range weapons to control the battlefield.
+            </p>
+            <span class="faction-number">FACTION ID: USA</span>
+          </div>
+        </article>
+
+        <!-- CHINA -->
+
+        <article class="faction-entry">
+          <div class="faction-image">
+            <img
+              src="images/faction-china.jpg"
+              alt="China faction"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="faction-info">
+            <span class="faction-tag">02 // GLOBAL SUPERPOWER</span>
+            <h2>China</h2>
+            <p>
+              Heavy armor, mass production, and overwhelming firepower.
+              China's military doctrine emphasizes durable vehicles,
+              large armies, and devastating offensive capabilities.
+            </p>
+            <span class="faction-number">FACTION ID: CHINA</span>
+          </div>
+        </article>
+
+        <!-- GLA -->
+
+        <article class="faction-entry">
+          <div class="faction-image">
+            <img
+              src="images/faction-gla.jpg"
+              alt="Global Liberation Army faction"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="faction-info">
+            <span class="faction-tag">03 // INSURGENT FORCE</span>
+            <h2>Global Liberation Army</h2>
+            <p>
+              Guerrilla warfare, unconventional tactics, and
+              resourceful military forces. The GLA uses ambushes,
+              expendable units, and asymmetric warfare to challenge
+              its more powerful opponents.
+            </p>
+            <span class="faction-number">FACTION ID: GLA</span>
+          </div>
+        </article>
+
+        <!-- HALO -->
+
+        <article class="faction-entry">
+          <div class="faction-image">
+            <img
+              src="images/faction-halo.jpg"
+              alt="HALO military organization"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="faction-info">
+            <span class="faction-tag">04 // ADVANCED MILITARY ORGANIZATION</span>
+            <h2>HALO</h2>
+            <p>
+              The Highly Advanced Liberation Organization combines
+              adapted military technology and specialized forces
+              to challenge the established global superpowers.
+            </p>
+            <span class="faction-number">FACTION ID: HALO</span>
+          </div>
+        </article>
+
+      </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <a class="footer-brand" href="index.html">UNITED FACTIONS <span>// UF</span></a>
-    <p>A fan-made modification for Command &amp; Conquer: Generals – Zero Hour.</p>
-    <p class="copyright">NOT AN OFFICIAL EA PRODUCT. ALL RIGHTS BELONG TO THEIR RESPECTIVE OWNERS.</p>
+    <a class="footer-brand" href="index.html">
+      UNITED FACTIONS <span>// UF</span>
+    </a>
+
+    <p>
+      A fan-made modification for
+      Command &amp; Conquer: Generals – Zero Hour.
+    </p>
+
+    <p class="copyright">
+      NOT AN OFFICIAL EA PRODUCT. ALL RIGHTS BELONG TO THEIR RESPECTIVE OWNERS.
+    </p>
   </footer>
 
 </body>
