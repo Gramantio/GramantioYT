@@ -8,19 +8,11 @@
   --bg: #151b24;
   --bg-light: #1b232d;
   --panel: #202a36;
-  --panel-light: #273443;
-
   --green: #819bb9;
   --green-bright: #a8bfd9;
-
   --text: #e0e6ed;
   --muted: #a0adbd;
   --border: rgba(133, 160, 191, 0.22);
-
-  --accent: #819bb9;
-  --accent-light: #a8bfd9;
-
-  --header-height: 76px;
 }
 
 /* ---------- Global ---------- */
